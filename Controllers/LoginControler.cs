@@ -92,7 +92,7 @@ namespace portalinvestimento.virtualtilab.com.Controllers
                     Where(x => x.Email == dto.Email).FirstOrDefault();
 
                 if (resultado != null)
-                    return BadRequest("Codigo de conta já existente. Informar outra conta!");
+                    return BadRequest("Email já existente!");
 
                 UsuarioService d = new UsuarioService();
                 bool checkPassword = d.CheckPassword(dto.Senha);
@@ -103,7 +103,7 @@ namespace portalinvestimento.virtualtilab.com.Controllers
                     
 
                     _usuarioRepository.Cadastrar(u);
-                    return Ok("user cadastrado com sucesso");
+                    return Ok("Ok");
                 }
                 else
                 {

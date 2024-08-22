@@ -20,6 +20,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
+//builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+//               builder =>
+//               {
+//                   builder
+//                   .WithOrigins("http://localhost:3000")
+//                   .AllowAnyMethod()
+//                   .AllowAnyHeader()
+//                   .AllowCredentials();
+//               }));
+
+builder.Services.AddCors();
+
+
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -118,6 +131,8 @@ var app = builder.Build();
     });
 //}
 
+//app.UseCors("CorsPolicy");
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

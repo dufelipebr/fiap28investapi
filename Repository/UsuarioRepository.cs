@@ -168,6 +168,8 @@ namespace portalinvestimento.virtualtilab.com.Repository
                             Id = Int32.Parse(rd["Id"].ToString()), 
                             Nome = rd["Nome"].ToString(), 
                             Codigo_Usuario = rd["Email"].ToString(),
+                            Email = rd["Email"].ToString(),
+                            Senha = rd["Senha"].ToString(),
                             TipoPermissao = (EnTipoAcesso) Int32.Parse(rd["Tipo_Acesso"].ToString()),
 
                         });
@@ -209,6 +211,7 @@ namespace portalinvestimento.virtualtilab.com.Repository
                         Id = Int32.Parse(rd["Id"].ToString()),
                         Nome = rd["Nome"].ToString(),
                         Codigo_Usuario = rd["Email"].ToString(),
+                        Email = rd["Email"].ToString(),
                         Senha = rd["Senha"].ToString(),
                         TipoPermissao = (EnTipoAcesso)Int32.Parse(rd["Tipo_Acesso"].ToString())
                     };
