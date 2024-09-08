@@ -41,14 +41,14 @@ namespace portalinvestimento.virtualtilab.com.Controllers
 
             if (usuario == null)
                 return NotFound(new { mensagem = "Usuario e ou Senha invalidos" });
-            
+
             var token = _tokenService.GerarToken(usuario);
 
             usuario.Senha = null;
 
             return Ok(new
             {
-                Usuario = usuario, 
+                Usuario = usuario,
                 Token = token
             });
         }
@@ -100,7 +100,7 @@ namespace portalinvestimento.virtualtilab.com.Controllers
                 {
                     //return _usuarioRepository.ObterTodos();
                     Usuario u = new Usuario(dto);
-                    
+
 
                     _usuarioRepository.Cadastrar(u);
                     return Ok("Ok");

@@ -5,6 +5,16 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "portalinvestimento.virtualtilab.com", "portalinvestimento.virtualtilab.com.csproj", "{282954CD-96E8-4CF4-986B-83C13CB0310A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortalInvestimento.Domain", "..\PortalInvestimento.Domain\PortalInvestimento.Domain.csproj", "{8BFD5E51-D2D0-4DC9-A7D0-F72EF237D5E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortalInvestimento.Infra.Data", "..\PortalInvestimento.Infra.Data\PortalInvestimento.Infra.Data.csproj", "{034BAB62-5DE7-4668-9E82-1EDE0DA241AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalInvestimento.Infra.IoC", "..\PortalInvestimento.Infra.IoC\PortalInvestimento.Infra.IoC.csproj", "{7509B68B-FCA4-40F2-A80A-1DBD21479CB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalInvestimento.Application", "..\PortalInvestimento.Application\PortalInvestimento.Application.csproj", "{09129AA6-7448-46F1-A635-BE16859B730C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalInvestimento.API", "..\PortalInvestimento.API\PortalInvestimento.API.csproj", "{E722465B-9ABA-45E1-A6A0-D59C340EF830}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{282954CD-96E8-4CF4-986B-83C13CB0310A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{282954CD-96E8-4CF4-986B-83C13CB0310A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{282954CD-96E8-4CF4-986B-83C13CB0310A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFD5E51-D2D0-4DC9-A7D0-F72EF237D5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFD5E51-D2D0-4DC9-A7D0-F72EF237D5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFD5E51-D2D0-4DC9-A7D0-F72EF237D5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFD5E51-D2D0-4DC9-A7D0-F72EF237D5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{034BAB62-5DE7-4668-9E82-1EDE0DA241AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034BAB62-5DE7-4668-9E82-1EDE0DA241AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034BAB62-5DE7-4668-9E82-1EDE0DA241AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034BAB62-5DE7-4668-9E82-1EDE0DA241AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7509B68B-FCA4-40F2-A80A-1DBD21479CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7509B68B-FCA4-40F2-A80A-1DBD21479CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7509B68B-FCA4-40F2-A80A-1DBD21479CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7509B68B-FCA4-40F2-A80A-1DBD21479CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09129AA6-7448-46F1-A635-BE16859B730C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09129AA6-7448-46F1-A635-BE16859B730C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09129AA6-7448-46F1-A635-BE16859B730C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09129AA6-7448-46F1-A635-BE16859B730C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E722465B-9ABA-45E1-A6A0-D59C340EF830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E722465B-9ABA-45E1-A6A0-D59C340EF830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E722465B-9ABA-45E1-A6A0-D59C340EF830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E722465B-9ABA-45E1-A6A0-D59C340EF830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

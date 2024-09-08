@@ -1,13 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using portalinvestimento.virtualtilab.com;
-using portalinvestimento.virtualtilab.com.Interfaces.Repository;
+using PortalInvestimento.Infra.IoC;
 using portalinvestimento.virtualtilab.com.Interfaces.Service;
-using portalinvestimento.virtualtilab.com.Repository;
 using portalinvestimento.virtualtilab.com.Services;
-using System.Data.SqlClient;
 using System.Reflection;
 using System.Text;
 
@@ -18,21 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
-//builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
-//               builder =>
-//               {
-//                   builder
-//                   .WithOrigins("http://localhost:3000")
-//                   .AllowAnyMethod()
-//                   .AllowAnyHeader()
-//                   .AllowCredentials();
-//               }));
 
 builder.Services.AddCors();
-
-
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -72,18 +56,14 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 //registrandos repositorios
-builder.Services.AddScoped<IAtivoRepository, AtivoRepository>();
-builder.Services.AddScoped<IAplicacaoRepository, AplicacaoRepository>();
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<IRentabilidadeRepository, RentabilidadeRepository>();
-builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 
 //registrandos services
-builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped<IAplicacaoService, InvestimentoService>();
-builder.Services.AddScoped<IAtivoService, AtivoService>();
-builder.Services.AddScoped<IPortfolioService, PortfolioService>();
+//builder.Services.AddScoped<ITokenService, TokenService>();
+//builder.Services.AddScoped<IAplicacaoService, InvestimentoService>();
+//builder.Services.AddScoped<IAtivoService, AtivoService>();
+//builder.Services.AddScoped<IPortfolioService, PortfolioService>();
 
 
 builder.Logging.ClearProviders();

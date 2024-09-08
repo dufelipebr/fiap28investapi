@@ -1,105 +1,98 @@
-﻿using portalinvestimento.virtualtilab.com.DTO;
-using portalinvestimento.virtualtilab.com.Repository;
-using static portalinvestimento.virtualtilab.com.Entity.Ativo;
+﻿using portalinvestimento.virtualtilab.com.dto;
+using portalinvestimento.virtualtilab.com.repository;
+using static portalinvestimento.virtualtilab.com.entity.ativo;
 
-namespace portalinvestimento.virtualtilab.com.Entity
+namespace portalinvestimento.virtualtilab.com.entity
 {
 
-    public class Usuario : Entidade
+    public class usuario : entidade
     {
-        #region Construtor
-        public Usuario()
+        #region construtor
+        public usuario()
         {
         }
-        public Usuario(int _id, String _nome) {
-            this.Id = _id;
-            this.Nome = _nome;
-        }
-        public Usuario(CadastrarUsuarioDTO cad)
+        public usuario(int _id, string _nome)
         {
-            this.Nome = cad.Nome;
-            this.Senha = cad.Senha;
-            this.TipoPermissao = cad.TipoAcesso;
-            this.Codigo_Usuario = cad.Email;
-            //this.Digito_Conta = cad.Digito_Conta;
-            //this.Codigo_Conta = cad.Codigo_Conta;
-            //this.CPF = cad.CPF;
-            //this.Saldo_Carteira = cad.Saldo_Carteira;
-
-            ValidateEntity();
+            this.id = _id;
+            this.nome = _nome;
         }
-        public Usuario(AlterarUsuarioDTO cad)
+        public usuario(cadastrarusuariodto cad)
         {
-            this.Nome = cad.Nome;
-            //this.Senha = cad.Senha;
-            this.TipoPermissao = cad.TipoAcesso;
-            this.Email = cad.Email;
-            //this.Digito_Conta = cad.Digito_Conta;
-            //this.Codigo_Conta = cad.Codigo_Conta;
-            //this.CPF = cad.CPF;
-            //this.Saldo_Carteira = cad.Saldo_Carteira;
-            //this.Id = cad.Id;
+            this.nome = cad.nome;
+            this.senha = cad.senha;
+            this.tipopermissao = cad.tipoacesso;
+            this.codigo_usuario = cad.email;
+            //this.digito_conta = cad.digito_conta;
+            //this.codigo_conta = cad.codigo_conta;
+            //this.cpf = cad.cpf;
+            //this.saldo_carteira = cad.saldo_carteira;
 
-            if (this.Id == 0)
-                throw new ArgumentException("ID não poder ser nulo ou 0.");
+            validateentity();
+        }
+        public usuario(alterarusuariodto cad)
+        {
+            this.nome = cad.nome;
+            //this.senha = cad.senha;
+            this.tipopermissao = cad.tipoacesso;
+            this.email = cad.email;
+            //this.digito_conta = cad.digito_conta;
+            //this.codigo_conta = cad.codigo_conta;
+            //this.cpf = cad.cpf;
+            //this.saldo_carteira = cad.saldo_carteira;
+            //this.id = cad.id;
 
-//            if (cad.Saldo_Carteira <= 0)
-  //              throw new ArgumentException("Saldo Carteira não poder ser 0.");
+            if (this.id == 0)
+                throw new argumentexception("id não poder ser nulo ou 0.");
 
-            //ValidateEntity();
+            //            if (cad.saldo_carteira <= 0)
+            //              throw new argumentexception("saldo carteira não poder ser 0.");
+
+            //validateentity();
         }
 
         #endregion
-        public EnTipoAcesso TipoPermissao { get; set; }
-        public string Nome { get; set; }
+        public entipoacesso tipopermissao { get; set; }
+        public string nome { get; set; }
+        public string email { get; set; }
+        public string senha { get; set; }
+        public string codigo_usuario { get; set; }
+        public entipoacesso tipoacesso { get; set; }
+        public portfolio portfolio { get; set; }
 
-        public string Email { get; set; }
-
-        public string Senha { get; set; }
-
-        public string Codigo_Usuario { get; set; }
-        public EnTipoAcesso TipoAcesso { get; set; }
-        //public string CPF { get; set; }
-        //public int Codigo_Conta { get; set; }
-        //public int Digito_Conta { get; set; }
-       
-
-        public Portfolio Portfolio { get; set; }
-
-        //public List<Aplicacao> Aplicacoes // Não tem config
+        //public list<aplicacao> aplicacoes // não tem config
         //{ 
         //    get {
-        //        AplicacaoRepository r = new AplicacaoRepository(config);
-        //        return r.ObterAplicacaoPorUserId(this.Id);
+        //        aplicacaorepository r = new aplicacaorepository(config);
+        //        return r.obteraplicacaoporuserid(this.id);
         //    } 
         //}
 
 
-        //public string ContaCompleta { 
+        //public string contacompleta { 
         //    get { 
-        //        return String.Format("{0}-{1}", this.Codigo_Conta, this.Digito_Conta); 
+        //        return string.format("{0}-{1}", this.codigo_conta, this.digito_conta); 
         //    } 
         //}
 
 
-        public override void ValidateEntity()
+        public override void validateentity()
         {
-            //AssertionConcern.AssertArgumentRange((double)Codigo_Conta, 1, 1000, "Codigo Conta precisa ser preenchido de 0-1000.");
-            //AssertionConcern.AssertArgumentRange((double)Digito_Conta, 0, 99, "Digito Conta precisa ser preenchido de 0-99.");
-            //AssertionConcern.AssertArgumentLength(Codigo_Conta, 50, "Codigo do Investimento precisa ter no maximo 10 caracteres.");
+            //assertionconcern.assertargumentrange((double)codigo_conta, 1, 1000, "codigo conta precisa ser preenchido de 0-1000.");
+            //assertionconcern.assertargumentrange((double)digito_conta, 0, 99, "digito conta precisa ser preenchido de 0-99.");
+            //assertionconcern.assertargumentlength(codigo_conta, 50, "codigo do investimento precisa ter no maximo 10 caracteres.");
 
-            AssertionConcern.AssertArgumentNotEmpty(Nome, "Nome precisa ser preenchido.");
-            AssertionConcern.AssertArgumentNotEmpty(Codigo_Usuario, "E-mail precisa ser preenchido.");
-            AssertionConcern.AssertArgumentMatches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", Codigo_Usuario, "E-mail invalido!");
-            //AssertionConcern.AssertArgumentNotEmpty(CPF, "CPF precisa ser preenchido.");
-            //AssertionConcern.AssertArgumentMatches(@"^\d{3}.?\d{3}.?\d{3}-?\d{2}$", CPF, "CPF invalido!");
+            assertionconcern.assertargumentnotempty(nome, "nome precisa ser preenchido.");
+            assertionconcern.assertargumentnotempty(codigo_usuario, "e-mail precisa ser preenchido.");
+            assertionconcern.assertargumentmatches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", codigo_usuario, "e-mail invalido!");
+            //assertionconcern.assertargumentnotempty(cpf, "cpf precisa ser preenchido.");
+            //assertionconcern.assertargumentmatches(@"^\d{3}.?\d{3}.?\d{3}-?\d{2}$", cpf, "cpf invalido!");
 
-            AssertionConcern.AssertArgumentNotEquals(TipoAcesso, 0, "Tipo Acesso precisa ser preenchido");
+            assertionconcern.assertargumentnotequals(tipoacesso, 0, "tipo acesso precisa ser preenchido");
 
-            //AssertionConcern.AssertArgumentRange((double)Saldo_Carteira, 0.1, 10, "Taxa ADM precisa estar entre 0.1 e 10.");
-            //AssertionConcern.AssertArgumentRange((double)Saldo_Carteira, 0, 1000000, "Saldo Carteira precisa ser maior que 0 e menor que 1.000.00,00");
+            //assertionconcern.assertargumentrange((double)saldo_carteira, 0.1, 10, "taxa adm precisa estar entre 0.1 e 10.");
+            //assertionconcern.assertargumentrange((double)saldo_carteira, 0, 1000000, "saldo carteira precisa ser maior que 0 e menor que 1.000.00,00");
 
-            //throw new NotImplementedException();
+            //throw new notimplementedexception();
         }
 
     }
